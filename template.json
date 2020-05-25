@@ -1,0 +1,32 @@
+{
+  "uuid": "ccf5ce08-c932-4e11-a5fd-c52378a86c20",
+  "name": "maDMP (RDA Common Standard)",
+  "description": "Machine-actionable DMP according to RDA Common Standard",
+  "allowedKMs": [
+    {
+      "orgId": "dsw",
+      "kmId": "root",
+      "minVersion": "2.0.0",
+      "maxVersion": null
+    }
+  ],
+  "formats": [
+    {
+      "uuid": "0369cf46-a50e-4be5-9656-7b17227c7818",
+      "name": "maDMP JSON",
+      "shortName": "json",
+      "icon": "fas fa-passport",
+      "color": "#f15a24",
+      "steps": [
+        {
+          "name": "jinja",
+          "options": {
+            "template": "content/madmp.json.j2",
+            "content-type": "application/json",
+            "extension": "json"
+          }
+        }
+      ]
+    }
+  ]
+}
