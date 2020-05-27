@@ -1,10 +1,45 @@
 {#- This file contains the mapping with dsw:root KM -#}
 {%- set km = ctx.knowledgeModel -%}
 {%- set repliesMap = ctx.questionnaireRepliesMap -%}
+{#- UUIDs -#}
+{%- set adminDetailsCUuid = "1e85da40-bbfc-4180-903e-6c569ed2da38" -%}
+{%- set projectNameQUuid = "f0ef08fd-d733-465c-bc66-5de0b826c41b" -%}
+{%- set grantNumberQUuid = "1ccbd0bb-4263-4240-9dc5-936ef09eef53" -%}
+{%- set projectAbstractQUuid = "22583d74-3c98-4e0a-b363-26d767c88212" -%}
+{%- set contributorsQUuid = "73d686bd-7939-412e-8631-502ee6d9ea7b" -%}
+{%- set contributorNameQUuid = "6155ad47-3d1e-4488-9f2a-742de1e56580" -%}
+{%- set contributorEmailQUuid = "3a2ffc13-6a0e-4976-bb34-14ab6d938348" -%}
+{%- set contributorOrcidQUuid = "6295a55d-48d7-4f3c-961a-45b38eeea41f" -%}
+{%- set contributorAffiliationQUuid = "68530470-1f1c-4448-8593-63a288713a66" -%}
+{%- set contributorRoleQUuid = "829dcda6-db8a-40ac-819a-92b9b52490f5" -%}
+{%- set contributorRoleContactPersonAUuid = "f7468e79-c621-4ac9-95e0-263ebdf23c73" -%}
+{%- set contributorRoleDataCuratorAUuid = "0ee99167-c1a2-4fe9-a799-ef07a31ccf35" -%}
+{%- set contributorRoleDataCollectorAUuid = "fe411838-170e-45d7-9d91-14f95ad347e6" -%}
+{%- set contributorRoleDataManagerAUuid = "6eef8c10-150a-496c-b02a-61c90e62e95b" -%}
+{%- set contributorRoleDistributorAUuid = "ae91b0b1-a591-49d1-a85c-13071550c043" -%}
 {#- UUID paths -#}
-{%- set dswProjectNamePath = "1e85da40-bbfc-4180-903e-6c569ed2da38.f0ef08fd-d733-465c-bc66-5de0b826c41b" -%}
+{#- Basic string fiels -#}
+{%- set dswProjectNamePath = [adminDetailsCUuid, projectNameQUuid]|reply_path -%}
 {%- set dswProjectName = repliesMap[dswProjectNamePath]|reply_str_value -%}
-
+{#- Contributors (list) -#}
+{%- set contributorRoleToText = {
+  contributorRoleContactPersonAUuid: "contact person",
+  contributorRoleDataCuratorAUuid: "curator",
+  contributorRoleDataCollectorAUuid: "collector",
+  contributorRoleDataManagerAUuid: "data manager",
+  contributorRoleDistributorAUuid: "distributor"
+} -%}
+{%- set dswContributorsPath = [adminDetailsCUuid, contributorsQUuid]|reply_path -%}
+{%- set dswContributorsReply = repliesMap[contributorsPath]|reply_int_value -%}
+{%- set dswContributors = [] -%}
+{%- for i in range(nContributors) -%}
+  {%- set dswContributorName = repliesMap[[dswContributorsPath, i, contributorNameQUuid]|reply_path]|reply_str_value -%}
+  {%- set dswContributorRoleAnswerUUID = repliesMap[[dswContributorsPath, i, contributorRoleQUuid]|reply_path]|reply_str_value -%}
+  {%- do dswContributors.append({
+    name: dswContributorName,
+    role: contributorRoleToText[dswContributorRoleAnswerUUID]
+  }) -%}
+{%- endfor -%}
 {#- maDMP variables -#}
 {#- - note: this should roughly match the JSON Schema -#}
 {#- - idea: or should ve construct the JSON object diretly? -#}
