@@ -1,0 +1,32 @@
+{#- This file contains the mapping with dsw:root KM -#}
+{%- set km = ctx.knowledgeModel -%}
+{%- set repliesMap = ctx.questionnaireRepliesMap -%}
+{#- UUID paths -#}
+{%- set dswProjectNamePath = "1e85da40-bbfc-4180-903e-6c569ed2da38.f0ef08fd-d733-465c-bc66-5de0b826c41b" -%}
+{%- set dswProjectName = repliesMap[dswProjectNamePath]|reply_str_value -%}
+
+{#- maDMP variables -#}
+{#- - note: this should roughly match the JSON Schema -#}
+{#- - idea: or should ve construct the JSON object diretly? -#}
+{%- set madmpTitle = "<title>" -%}
+{%- set madmpDescription = "<description>" -%}
+{%- set madmpLanguage = "eng" -%}
+{%- set madmpCreated = "<created date-time>" -%}
+{%- set madmpCreated = "<modified date-time>" -%}
+{%- set madmpDMPID_identifier = "<dmp identifier>" -%}
+{%- set madmpDMPID_type = "<dmp identifier type>" -%}
+{# ... #}
+{%- set madmpContributors = [
+  {
+    id: "",
+    idType: "",
+    mbox: "",
+    name: "",
+    roles: [""],
+  }
+] -%}
+{# ... #}
+{%- set madmpProject = {
+  title: dswProjectName
+}
+-%}

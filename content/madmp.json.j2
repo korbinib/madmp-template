@@ -1,11 +1,9 @@
-{#- maDMP template based on https://github.com/RDA-DMP-Common/RDA-DMP-Common-Standard/blob/master/examples/JSON/ex8-dmp-minimal-content.json -#}
-{%- set km = ctx.knowledgeModel -%}
-{%- set repliesMap = ctx.questionnaireRepliesMap -%}
-{%- set projectNamePath = "1e85da40-bbfc-4180-903e-6c569ed2da38.f0ef08fd-d733-465c-bc66-5de0b826c41b" -%}
-{%- set projectName = repliesMap[projectNamePath]|reply_str_value -%}
+{#- maDMP template based on https://github.com/RDA-DMP-Common/RDA-DMP-Common-Standard/blob/master/examples/JSON/JSON-schema/1.0/maDMP-schema-1.0.json -#}
+{%- import "_mapping.j2" as mapping with context -%}
 {
 	"dmp": {
-		"title": "{{ projectName }}",
+		"title": "{{ mapping.madmpProject.title }}",
+		"language": "{{ mapping.madmpLanguage }}",
 		"contact": {
 			"contact_id": {
 				"identifier": "http://orcid.org/0000-0000-0000-0000",
@@ -14,7 +12,6 @@
 			"mbox": "cc@example.com",
 			"name": "Charlie Chaplin"
 		},
-		"created": "2018-07-23T10:10:23.6",
 		"dmp_id": {
 			"identifier": "https://doi.org/10.0000/00.0.1234",
 			"type": "doi"
@@ -31,7 +28,7 @@
 			}
 		],
 		"ethical_issues_exist": "unknown",
-		"language": "eng",
+		"created": "2018-07-23T10:10:23.6",
 		"modified": "2019-02-06T15:30:42.1"
 	}
 }

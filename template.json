@@ -27,6 +27,23 @@
           }
         }
       ]
+    },
+    {
+      "uuid": "9c7d572e-c273-4323-97a4-ab38f943c33a",
+      "name": "maDMP RDF (DSCO)",
+      "shortName": "rdf",
+      "icon": "fas fa-share-alt",
+      "color": "#f15a24",
+      "steps": [
+        {
+          "name": "jinja",
+          "options": {
+            "template": "content/madmp.rdf.j2",
+            "content-type": "application/rdf+xml",
+            "extension": "rdf"
+          }
+        }
+      ]
     }
   ]
 }
