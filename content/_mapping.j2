@@ -42,15 +42,6 @@
 {%- endfor -%}
 {#- maDMP variables -#}
 {#- - note: this should roughly match the JSON Schema -#}
-{#- - idea: or should ve construct the JSON object diretly? -#}
-{%- set madmpTitle = "<title>" -%}
-{%- set madmpDescription = "<description>" -%}
-{%- set madmpLanguage = "eng" -%}
-{%- set madmpCreated = "<created date-time>" -%}
-{%- set madmpCreated = "<modified date-time>" -%}
-{%- set madmpDMPID_identifier = "<dmp identifier>" -%}
-{%- set madmpDMPID_type = "<dmp identifier type>" -%}
-{# ... #}
 {%- set madmpContributors = [
   {
     id: "",
@@ -65,3 +56,10 @@
   title: dswProjectName
 }
 -%}
+{#- - idea: or should ve construct the JSON object diretly? -#}
+{%- set madmp = {
+  title: "",
+  description: "",
+  language: "eng",
+  contributors: madmpContributors
+} -%}
