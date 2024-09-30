@@ -40,6 +40,14 @@
   {%- set contributorName = repliesMap[[contributorsPath, i, uuids.contributorNameQUuid]|reply_path]|reply_str_value -%}
   {%- set contributorEmail = repliesMap[[contributorsPath, i, uuids.contributorEmailQUuid]|reply_path]|reply_str_value -%}
   {%- set contributorOrcid = repliesMap[[contributorsPath, i, uuids.contributorOrcidQUuid]|reply_path]|reply_str_value -%}
+  {%- set contributorAffiliation = repliesMap[[contributorsPath, i, uuids.contributorAffiliationQUuid]|reply_path] -%}
+   {%- set AffiliationUrl = "" -%}
+    {%- if contributorAffiliation and contributorAffiliation.value.value.type == "IntegrationType" and contributorAffiliation.value.value.id -%}
+      {%- set AffiliationUrl = contributorAffiliation.value.value.id -%}
+    {%- elif contributorAffiliation -%}
+      {%- set AffiliationUrl = contributorAffiliation.value.value.value.split('**')[1]  -%} {# QnD #}
+    {%- endif -%}  
+    {%- set AffiliationName = contributorAffiliation.value.value.value.split('**')[1]  -%}  {# QnD #}
   {%- set contributorRoleChoices = repliesMap[[contributorsPath, i, uuids.contributorRoleQUuid]|reply_path]|reply_items -%}
   {#- Currently, only one role is possible -#}
   {%- set contributorRoles = [] -%}
@@ -50,6 +58,13 @@
     "contributor_id": {
       "identifier": contributorOrcid|default(""),
       "type": "orcid"
+    },
+    "affiliation": {
+      "name": AffiliationName|default(""),
+      "affiliation_id": {
+      "identifier": AffiliationUrl|default(""),
+      "type": "ror"
+      },  
     },
     "name": contributorName|default(""),
     "role": contributorRoles|sort
