@@ -1,22 +1,22 @@
 {
   "organizationId": "dsw",
   "templateId": "rda-madmp",
-  "version": "1.18.0",
+  "version": "1.26.0",
   "name": "maDMP (RDA DMP Common Standard)",
   "description": "Machine-actionable DMP according to RDA Common Standard",
   "license": "Apache-2.0",
-  "metamodelVersion": 14,
+  "metamodelVersion": "17.0",
   "allowedPackages": [
     {
       "orgId": "dsw",
       "kmId": "root",
-      "minVersion": "2.6.7",
+      "minVersion": "2.6.13",
       "maxVersion": null
     },
     {
       "orgId": "dsw",
       "kmId": "lifesciences",
-      "minVersion": "2.6.7",
+      "minVersion": "2.6.13",
       "maxVersion": null
     }
   ],

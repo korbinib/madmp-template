@@ -1,6 +1,6 @@
 # Machine-Actionable DMP
 
-Template based on the [RDA DMP Common Standard (DCS)](https://github.com/RDA-DMP-Common/RDA-DMP-Common-Standard) for machine-actionable Data Management Plans and the provided [JSON schema](https://github.com/RDA-DMP-Common/RDA-DMP-Common-Standard/tree/master/examples/JSON/JSON-schema) for machine-actionable DMPs. It also uses the [DCS Ontology](https://github.com/RDA-DMP-Common/RDA-DMP-Common-Standard/tree/master/ontologies) to allow export in RDF.
+Template based on the [RDA DMP Common Standard (DCS)](https://github.com/RDA-DMP-Common/RDA-DMP-Common-Standard) for machine-actionable Data Management Plans and the provided [JSON schema](https://github.com/RDA-DMP-Common/RDA-DMP-Common-Standard/tree/master/examples/JSON/JSON-schema) for machine-actionable DMPs. It also uses the [DCS Ontology](https://github.com/RDA-DMP-Common/dcso) to allow export in RDF. Template is designed for use in [Data Stewardship Wizard](https://ds-wizard.org) with [*Common Data Stewardship knowledge model*](https://registry.ds-wizard.org/knowledge-models/dsw:root:latest) and [*Life Sciences DSW Knowledge Model*](https://registry.ds-wizard.org/knowledge-models/dsw:lifesciences:latest).
 
 
 ## Usage
@@ -27,6 +27,42 @@ This document template for DSW is available as open-source via GitHub Repository
 
 
 ## Changelog
+
+### 1.26.0
+
+- Update dependency on KM to 2.6.13
+- Fix legacy integration type
+
+### 1.25.0
+
+- Update integrations to metamodel version 17.0 (released in DSW 4.22.0)
+
+### 1.24.0
+
+- Adjusted to template metamodel version 17.0 (released in DSW 4.22.0)
+
+### 1.23.0
+
+- Fix ethical issues related to reuse of non-reference datasets
+- Updated minimum required version of compatible knowledge models to 2.6.11
+- Updated README with the latest link to the DCS Ontology
+
+### 1.22.0
+
+- Added ORCID integration
+- Added compatible knowledge models to README
+
+### 1.21.0
+
+- Improved Authors of the DMP
+
+### 1.20.0
+
+- Adjusted to template metamodel version 16 (released in DSW 4.13.0)
+
+### 1.19.0
+
+- Adjusted to template metamodel version 15 (released in DSW 4.12.0)
 
 ### 1.18.0
 
